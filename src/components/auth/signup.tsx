@@ -45,46 +45,48 @@ const Signup: React.FC = () => {
 
     return (
         <div className="container mt-5">
-            <h2>Signup</h2>
-            {error && <div className="alert alert-danger">{error}</div>}
-            {success && <div className="alert alert-success">{success}</div>}
-            
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label className="form-label">Name</label>
-                    <input type="text" className="form-control" name="name" value={formData.name} onChange={handleChange} required />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Email</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                        minLength={6}
-                    />
-                </div>
-                <button
-                    type="submit"
-                    className="btn btn-primary"
-                    disabled={loading || !formData.name || !formData.email || !formData.password}
-                >
-                    {loading ? "Signing up..." : "Sign Up"}
-                </button>
-            </form>
+            <div className="col-md-6 offset-md-3 rounded border border-warning p-5">
+                <h2 className="text-center">Signup</h2>
+                {error && <div className="alert alert-danger">{error}</div>}
+                {success && <div className="alert alert-success">{success}</div>}
+
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label className="form-label">Name</label>
+                        <input type="text" className="form-control" name="name" value={formData.name} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                            minLength={6}
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="btn btn-primary col-md-12"
+                        disabled={loading || !formData.name || !formData.email || !formData.password}
+                    >
+                        {loading ? "Signing up..." : "Sign Up"}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

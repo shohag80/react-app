@@ -12,9 +12,7 @@ export interface User {
 
 // Signup a new user
 export const createUser = async (user: User): Promise<User> => {
-    
     const response = await axios.post(SIGNUP_URL, user);
-    console.log(response);
     return response.data;
 };
 

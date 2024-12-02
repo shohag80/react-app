@@ -27,9 +27,7 @@ const Signup: React.FC = () => {
         }
 
         setLoading(true);
-        setError(null); // Reset previous errors
-
-        // console.log(formData);
+        setError(null);
 
         try {
             await createUser(formData);
@@ -47,7 +45,7 @@ const Signup: React.FC = () => {
     return (
         <div className="container mt-5">
             <h2>Signup</h2>
-            {error && <div className="alert alert-danger">{error}</div>} {/* Display error message */}
+            {error && <div className="alert alert-danger">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Name</label>
@@ -80,13 +78,13 @@ const Signup: React.FC = () => {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        minLength={6} // Add a password length requirement
+                        minLength={6}
                     />
                 </div>
                 <button
                     type="submit"
                     className="btn btn-primary"
-                    disabled={loading || !formData.name || !formData.email || !formData.password}
+                    disabled={loading || !formData.name || !formData.email || !formData.password || !formData.username}
                 >
                     {loading ? "Signing up..." : "Sign Up"}
                 </button>

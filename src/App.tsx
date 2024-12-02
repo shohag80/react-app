@@ -7,6 +7,7 @@ import EmployeeList from "./components/employee/employee_list";
 import CreateEmployee from "./components/employee/employee_create";
 import UpdateEmployee from "./components/employee/employee_update";
 import Header from "./components/template/header";
+import ProtectedRoute from "./contexts/protected_route";
 
 const App: React.FC = () => {
     return (
@@ -14,11 +15,11 @@ const App: React.FC = () => {
             <Router>
                 <Header />
                 <Routes>
-                    <Route path="/" element={<EmployeeList />} />
-                    <Route path="/create" element={<CreateEmployee />} />
-                    <Route path="/update/:id" element={<UpdateEmployee />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/" element={<ProtectedRoute><EmployeeList /></ProtectedRoute>} />
+                    <Route path="/create" element={<ProtectedRoute><CreateEmployee /></ProtectedRoute>} />
+                    <Route path="/update/:id" element={<ProtectedRoute><UpdateEmployee /></ProtectedRoute>} />
                 </Routes>
             </Router>
         </AuthProvider>

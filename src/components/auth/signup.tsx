@@ -84,7 +84,7 @@ const Signup: React.FC = () => {
                 <button
                     type="submit"
                     className="btn btn-primary"
-                    disabled={loading || !formData.name || !formData.email || !formData.password || !formData.username}
+                    disabled={loading || !formData.name || !formData.email || !formData.password}
                 >
                     {loading ? "Signing up..." : "Sign Up"}
                 </button>

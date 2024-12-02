@@ -11,7 +11,19 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+        const jwt_token = localStorage.getItem("jwt_token");
+        if (jwt_token) {
+            try {
+                const decodedToken: any = jwtDecode(jwt_token);
+                const currentTime = Date.now() / 1000;
+                return decodedToken.exp > currentTime;
+            } catch (error) {
+                console.error("Invalid token:", error);
+            }
+        }
+        return false;
+    });
 
     useEffect(() => {
         const jwt_token = localStorage.getItem("jwt_token");

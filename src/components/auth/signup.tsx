@@ -10,6 +10,7 @@ const Signup: React.FC = () => {
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState<string | null>(null);
     const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,13 +29,13 @@ const Signup: React.FC = () => {
 
         setLoading(true);
         setError(null);
+        setSuccess(null);
 
         try {
             await createUser(formData);
-            alert("User Registered successfully!");
+            setSuccess("User Registered successfully!");
             navigate("/login");
         } catch (error: any) {
-            console.error(error);
             const errorMessage = error.response?.data?.message || "Signup failed. Please try again.";
             setError(errorMessage); // Set the error message from API response
         } finally {
@@ -46,17 +47,12 @@ const Signup: React.FC = () => {
         <div className="container mt-5">
             <h2>Signup</h2>
             {error && <div className="alert alert-danger">{error}</div>}
+            {success && <div className="alert alert-success">{success}</div>}
+            
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
+                    <input type="text" className="form-control" name="name" value={formData.name} onChange={handleChange} required />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Email</label>

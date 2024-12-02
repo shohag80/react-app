@@ -55,9 +55,9 @@ const EmployeeList: React.FC = () => {
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div className="container mt-5">
-            <div className="d-flex justify-content-between">
-                <h2 className="text-center mb-4">Employee List</h2>
+        <div className="container mt-3">
+            <div className="d-flex justify-content-between p-4 rounded" style={{ backgroundImage: "url('assets/background/4.jpg')" }}>
+                <h2 className="text-center mb-4 text-white">Employee List</h2>
                 <div className="mb-3 col-md-6">
                     <input
                         type="text"
@@ -67,8 +67,8 @@ const EmployeeList: React.FC = () => {
                         onChange={handleSearch}
                     />
                 </div>
-                <Link to="/create" className="btn btn-primary mb-3">
-                    Add New Employee
+                <Link to="/create" className="btn btn-info mb-3">
+                    New Employee
                 </Link>
             </div>
 
@@ -86,7 +86,7 @@ const EmployeeList: React.FC = () => {
                         <th>Salary</th>
                         <th>Date of Joining</th>
                         <th>Department</th>
-                        <th>Actions</th>
+                        <th className="col-md-2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -101,11 +101,8 @@ const EmployeeList: React.FC = () => {
                                 <td>{employee.date_of_joining}</td>
                                 <td>{employee.department}</td>
                                 <td>
-                                    <Link
-                                        to={`/update/${employee._id}`}
-                                        className="btn btn-warning btn-sm me-2"
-                                    >
-                                        Edit
+                                    <Link to={`/update/${employee._id}`} className="btn btn-warning btn-sm me-2">
+                                        &nbsp; Edit &nbsp;
                                     </Link>
                                     <button
                                         onClick={() => handleDelete(employee._id || "")}

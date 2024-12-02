@@ -6,15 +6,15 @@ const Header: React.FC = () => {
     const { isAuthenticated } = useAuth();
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-warning">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Employee Management</Link>
                 {isAuthenticated ? (
                     <LogoutButton />
                 ) : (
                     <div>
-                        <Link className="btn btn-link" to="/login">Login</Link>
-                        <Link className="btn btn-link" to="/signup">Signup</Link>
+                        <Link className="btn btn-outline-primary" to="/login">Login</Link> &nbsp;&nbsp;
+                        <Link className="btn btn-outline-success" to="/signup">Signup</Link>
                     </div>
                 )}
             </div>

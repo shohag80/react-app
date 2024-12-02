@@ -28,34 +28,36 @@ const Login: React.FC = () => {
 
     return (
         <div className="container mt-5">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label className="form-label">Email</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary" disabled={loading}>
-                    {loading ? "Logging in..." : "Log In"}
-                </button>
-            </form>
+            <div className="col-md-6 offset-md-3 rounded border border-warning p-5">
+                <h2 className="text-center">Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label className="form-label">Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div><br />
+                    <button type="submit" className="btn btn-primary col-md-12" disabled={loading}>
+                        {loading ? "Logging in..." : "Log In"}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

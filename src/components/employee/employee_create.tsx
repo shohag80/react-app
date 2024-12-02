@@ -32,12 +32,12 @@ const CreateEmployee: React.FC = () => {
 
     return (
         <div className="container mt-4">
-            <div className="d-flex justify-content-between">
-                <h4 className="mb-4">Create Employee</h4>
+            <div className="d-flex justify-content-between p-4 rounded" style={{ backgroundImage: "url('assets/background/4.jpg')" }}>
+                <h4 className="text-white">Create Employee</h4>
                 <Link to="/" className="btn btn-secondary mb-3 col-md-2">
                     Back
                 </Link>
-            </div>
+            </div><br />
             <form onSubmit={handleSubmit} className="card p-4 shadow-sm">
                 <div className="row mb-3">
                     <div className="col-md-6">
@@ -61,44 +61,48 @@ const CreateEmployee: React.FC = () => {
                         />
                     </div>
                 </div>
-                <div className="mb-3">
-                    <input
-                        type="email"
-                        className="form-control"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
+                <div className="row mb-3">
+                    <div className="col-md-6">
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="position"
+                            placeholder="Position"
+                            value={formData.position}
+                            onChange={handleChange}
+                        />
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="position"
-                        placeholder="Position"
-                        value={formData.position}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="salary"
-                        placeholder="Salary"
-                        value={formData.salary}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <input
-                        type="date"
-                        className="form-control"
-                        name="date_of_joining"
-                        value={formData.date_of_joining}
-                        onChange={handleChange}
-                    />
+                <div className="row mb-3">
+                    <div className="col-md-6">
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="salary"
+                            placeholder="Salary"
+                            value={formData.salary}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <input
+                            type="date"
+                            className="form-control"
+                            name="date_of_joining"
+                            value={formData.date_of_joining}
+                            onChange={handleChange}
+                        />
+                    </div>
                 </div>
                 <div className="mb-3">
                     <input
